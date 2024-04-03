@@ -1,5 +1,8 @@
 const os = require('os');
 const pkg = require('../../package.json');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const get = async (req, res) => {
     const healty = {
