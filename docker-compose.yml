@@ -35,16 +35,16 @@ services:
     build:
       context: ./api
     image: api:${API_VERSION}
-    container_name: frontend
+    container_name: api
     ports:
-      - 3000:3000
+      - 3001:3001
     environment:
-      NODE_ENV: ${NODE_ENV}
-      API_KEY: ${API_KEY}
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: ${DB_HOST}
+      - NODE_ENV=${NODE_ENV}
+      - API_KEY=${API_KEY}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
     healthcheck:
       test: ["CMD", "nc", "-z","localhost", "3000"]
       interval: 10s
@@ -52,15 +52,15 @@ services:
       retries: 20
     depends_on:
       - db
-  frontend:
-    restart: always
-    build:
-      context: ./frontend
-    image: frontend:${FRONT_VERSION}
-    container_name: frontend
-    ports:
-      - 80:80
-    environment:
-      NODE_ENV: ${NODE_ENV}
-      API_KEY: ${API_KEY}
+  # frontend:
+  #   restart: always
+  #   build:
+  #     context: ./frontend
+  #   image: frontend:${FRONT_VERSION}
+  #   container_name: frontend
+  #   ports:
+  #     - 80:80
+  #   environment:
+  #     NODE_ENV: ${NODE_ENV}
+  #     API_KEY: ${API_KEY}
   
