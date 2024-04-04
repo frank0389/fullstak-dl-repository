@@ -45,11 +45,6 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_HOST=${DB_HOST}
-    healthcheck:
-      test: ["CMD", "nc", "-z","localhost", "3000"]
-      interval: 10s
-      start_period: 180s
-      retries: 20
     depends_on:
       - db
   frontend:
@@ -63,4 +58,6 @@ services:
     environment:
       - NODE_ENV:${NODE_ENV}
       - API_KEY:${API_KEY}
+    depends_on:
+      - api
   

@@ -1,8 +1,10 @@
 const http = require('http');
 const options = {
     host: '0.0.0.0',
-    port: 3000,
-    timeout: 2000
+    port: process.env.PORT,
+    path: '/health',
+    timeout: 2000,
+    headers: {'apikey': process.env.API_KEY},
 };
 
 const healthCheck = http.request(options, (res) => {
