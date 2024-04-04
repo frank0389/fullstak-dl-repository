@@ -52,15 +52,15 @@ services:
       retries: 20
     depends_on:
       - db
-  # frontend:
-  #   restart: always
-  #   build:
-  #     context: ./frontend
-  #   image: frontend:${FRONT_VERSION}
-  #   container_name: frontend
-  #   ports:
-  #     - 80:80
-  #   environment:
-  #     NODE_ENV: ${NODE_ENV}
-  #     API_KEY: ${API_KEY}
+  frontend:
+    restart: always
+    build:
+      context: ./frontend
+    image: frontend:${FRONT_VERSION}
+    container_name: frontend
+    ports:
+      - 80:80
+    environment:
+      - NODE_ENV:${NODE_ENV}
+      - API_KEY:${API_KEY}
   
