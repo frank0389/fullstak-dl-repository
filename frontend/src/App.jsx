@@ -6,6 +6,7 @@ const App = ()=> {
     return (
         <>
          <Nav title="UsersApp"/>
+         
          <UserView />
         </>
     );
