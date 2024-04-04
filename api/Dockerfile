@@ -6,8 +6,7 @@ RUN npm ci --only=prod
 
 ARG port=8080
 
-ENV PORT=${port} \
-  APP_NAME=${app_name} 
+ENV PORT=${port} 
 
 EXPOSE ${port}
 

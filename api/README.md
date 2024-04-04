@@ -205,3 +205,40 @@ Endpoint para eliminar un usuario en el sistema.
 ```
  Ok
 ```
+
+## Environment Variables
+Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno a su archivo .env
+
+`DB_NAME`
+
+`DB_USER`
+
+`DB_PASSWORD` 
+
+`DB_HOST`
+
+`API_KEY`
+
+## Deployment
+
+### Dockerfile
+```
+FROM node:18.18.2-slim
+COPY . /node-app
+WORKDIR /node-app
+
+RUN npm ci --only=prod
+
+ARG port=8080
+
+ENV PORT=${port} 
+
+EXPOSE ${port}
+
+CMD ["node", "src/index.js"]
+
+```
+
+## Version control
+ 4/04/2024 => Se creo el fichero readme.md por primera vez   
+ 4/04/2024 => Se Termino la actualización del fichero readme.md 
