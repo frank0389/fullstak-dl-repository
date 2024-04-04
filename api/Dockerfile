@@ -7,8 +7,7 @@ RUN npm ci --only=prod
 ARG port=8080
 
 ENV PORT=${port} \
-  APP_NAME=${app_name} \
-  TEAM_NAME=${team_name}
+  APP_NAME=${app_name} 
 
 EXPOSE ${port}
 

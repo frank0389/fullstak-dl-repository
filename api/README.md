@@ -37,3 +37,171 @@ Endpoint para consultar el estado de la api. Te permite saber la versión de có
     "MYSQLConnection": "Ok"
 }
 ```
+
+#### create users
+Endpoint para insertar un usuario en la bd.
+
+```
+  POST /users
+```
+
+
+##### Headers
+
+| Name | Value     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Content-Type` | `application/json` | **Required**. Tipo de contenido |
+
+##### Request body 
+```json
+    {
+        "id": 16,
+        "userName": "frank",
+        "firstName": "Frank Enrique",
+        "lastName": "Nicolau",
+        "password": "hdgdfdfdfd",
+        "email": "frank.nicolau03@gmail.com"
+    }
+```
+##### Response success 201 
+```json
+{
+        "id": 16,
+        "userName": "frank",
+        "firstName": "Frank Enrique",
+        "lastName": "Nicolau",
+        "password": "hdgdfdfdfd",
+        "email": "frank.nicolau03@gmail.com"
+    }
+
+```
+
+#### update users
+Endpoint para actualizar un usuario en la bd.
+
+```
+  PUT /users
+```
+
+##### Headers
+
+| Name | Value     | Description                |
+| :-------- | :------- | :------------------------- |
+| `Content-Type` | `application/json` | **Required**. Tipo de contenido |
+
+##### Parameters
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id del usuario a modificar|
+
+##### Request body 
+```json
+    {
+        "id": 16,
+        "userName": "frank",
+        "firstName": "Frank Enrique",
+        "lastName": "Nicolau",
+        "password": "hdgdfdfdfd",
+        "email": "frank.nicolau03@gmail.com"
+    }
+```
+##### Response success 200 
+```json
+{
+        "id": 16,
+        "userName": "frank",
+        "firstName": "Frank Enrique",
+        "lastName": "Nicolau",
+        "password": "hdgdfdfdfd",
+        "email": "frank.nicolau03@gmail.com"
+    }
+```
+
+#### get user
+Endpoint para obtener un usuario dado su id.
+
+```
+  GET /users/:id
+```
+##### Parameters
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id del usuario a modificar|
+
+## Response success 200 
+```json
+{
+        "id": 16,
+        "userName": "frank",
+        "firstName": "Frank Enrique",
+        "lastName": "Nicolau",
+        "password": "hdgdfdfdfd",
+        "email": "frank.nicolau03@gmail.com"
+    }
+```
+
+#### get all users
+Endpoint para obtener todos los usuarios del sistema.
+
+```
+  GET /users
+```
+
+##### Response success 200 
+```json
+[
+    {
+        "id": 16,
+        "userName": "frank",
+        "firstName": "Frank Enrique",
+        "lastName": "Nicolau",
+        "password": "hdgdfdfdfd",
+        "email": "frank.nicolau03@gmail.com"
+    }
+]
+```
+
+#### search users
+Endpoint para obtener todos los usuarios dado sus propiedades.
+
+```
+  GET /search?property=lastName&value=Nicolau&limit=5&offset=0
+```
+
+##### Parameters
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `property`      | `string` | **Required**. Nombre de la propiedad por la que se quiere filtrar|
+| `value`      | `string` | **Required**. Valor de la propiedad|
+| `limit`      | `string` | **Required**. Limite de la consulta|
+| `offset`      | `string` | **Required**. Offset de la consulta|
+
+##### Response success 200 
+```json
+[
+    {
+        "id": 16,
+        "userName": "frank",
+        "firstName": "Frank Enrique",
+        "lastName": "Nicolau",
+        "password": "hdgdfdfdfd",
+        "email": "frank.nicolau03@gmail.com"
+    }
+]
+```
+
+#### delete user
+Endpoint para eliminar un usuario en el sistema.
+
+```
+  GET /users/:id
+```
+##### Parameters
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id del usuario a eliminar|
+
+## Response success 200 
+```
+ Ok
+```
