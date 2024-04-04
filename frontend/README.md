@@ -26,7 +26,7 @@ Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno
 ### Dockerfile
 ```
 # Use the official Node.js runtime as the base image
-FROM node:18 as build
+FROM node:18.18.2-slim as build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -47,7 +47,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copy the built React app to Nginx's web server directory
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 COPY --from=build /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 for the Nginx server

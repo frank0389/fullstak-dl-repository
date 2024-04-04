@@ -10,4 +10,6 @@ ENV PORT=${port}
 
 EXPOSE ${port}
 
+HEALTHCHECK --interval=10s --timeout=2s --start-period=15s CMD node healthcheck.js 
+
 CMD ["node", "src/index.js"]
