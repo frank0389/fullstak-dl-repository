@@ -22,4 +22,4 @@ const sequelize = new Sequelize(
         }
       };
 
-      module.exports = { sequelize, connectToDb };
+module.exports = { sequelize, connectToDb };

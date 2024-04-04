@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "8ff1ed52-4138-46b9-a978-0dddb195a335",
+		"name": "fullstack-dl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ea63cac-22a3-4f14-8b0a-e9cf8bf251f8",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "apikey",
+						"value": "{{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"frank\",\n\t\"password\":\"hdgdfdfdfd\",\n\t\"email\":\"frank.nicolau03@gmail.com\",\n\t\"firstName\": \"Frank Enrique\",\n\t\"lastName\": \"Nicolau\"\n}"
+				},
+				"url": "http://localhost:3001/users",
+				"description": "Create new user in DB"
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bdad80b-cc88-42b5-92b1-f329958df663",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "apikey",
+						"value": "{{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"frank\",\n\t\"password\":\"hdgdfdfdfd\",\n\t\"email\":\"frank.nicolau03@gmail.com\",\n\t\"firstName\": \"Frank Enrique 111\",\n\t\"lastName\": \"Nicolau\"\n}"
+				},
+				"url": "http://localhost:3001/users/1",
+				"description": "Create new user in DB"
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a673a9a-be31-454e-a48f-73f1d4ee53ee",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "{{apikey}}"
+					}
+				],
+				"body": {},
+				"url": "http://localhost:3001/users/1",
+				"description": "Create new user in DB"
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a673a9a-be31-454e-a48f-73f1d4ee53ee",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "{{apikey}}"
+					}
+				],
+				"body": {},
+				"url": "http://localhost:3001/users/1",
+				"description": "Create new user in DB"
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "53f62c02-3202-4363-a03c-94446269fb5e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "{{apikey}}"
+					}
+				],
+				"body": {},
+				"url": "http://localhost:3001/users",
+				"description": "Create new user in DB"
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdc7db1d-9d56-4a0c-b53b-898ec13cf060",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "{{apikey}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3001/search?property=lastName&value=Nicolau&limit=5&offset=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "property",
+							"value": "lastName"
+						},
+						{
+							"key": "value",
+							"value": "Nicolau"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Create new user in DB"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "56ec0d56-332e-4cf2-b2ae-a82068897d5a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7251690f-b300-4d98-9eac-634a5fb3a288",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "a0ad5a7c-78ab-41be-a259-98410a6cd99f",
+			"key": "apikey",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsIm5hbWUiOiJKb2huIERvZSIsImlhdCI6MTUxNjIzOTAyMn0.a4ZLo2TxNUb8mj4ff9z9v1IE3PlSPpFuLCT45ljOVUI",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
