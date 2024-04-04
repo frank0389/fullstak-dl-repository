@@ -72,7 +72,7 @@ Endpoint para insertar un usuario en la bd.
         "lastName": "Nicolau",
         "password": "hdgdfdfdfd",
         "email": "frank.nicolau03@gmail.com"
-    }
+}
 
 ```
 
@@ -96,14 +96,14 @@ Endpoint para actualizar un usuario en la bd.
 
 ##### Request body 
 ```json
-    {
+{
         "id": 16,
         "userName": "frank",
         "firstName": "Frank Enrique",
         "lastName": "Nicolau",
         "password": "hdgdfdfdfd",
         "email": "frank.nicolau03@gmail.com"
-    }
+}
 ```
 ##### Response success 200 
 ```json
@@ -114,7 +114,7 @@ Endpoint para actualizar un usuario en la bd.
         "lastName": "Nicolau",
         "password": "hdgdfdfdfd",
         "email": "frank.nicolau03@gmail.com"
-    }
+}
 ```
 
 #### get user
@@ -137,7 +137,7 @@ Endpoint para obtener un usuario en la bd.
         "lastName": "Nicolau",
         "password": "hdgdfdfdfd",
         "email": "frank.nicolau03@gmail.com"
-    }
+}
 ```
 
 #### get all users
