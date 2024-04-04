@@ -118,7 +118,7 @@ Endpoint para actualizar un usuario en la bd.
 ```
 
 #### get user
-Endpoint para obtener un usuario dado su id.
+Endpoint para obtener un usuario en la bd.
 
 ```
   GET /users/:id
@@ -126,7 +126,7 @@ Endpoint para obtener un usuario dado su id.
 ##### Parameters
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id del usuario a modificar|
+| `id`      | `string` | **Required**. Id del usuario |
 
 ## Response success 200 
 ```json
