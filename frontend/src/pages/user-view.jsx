@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import Table from '../components/table';
-
+import {getUsers} from '../core/api/users'
 
 const UserView = () => {
 
      const headers = ["#", "Usuario", "Nombre", "Apellido", "Correo"];
      const users = [{id:1, user:"Frank", name:"frank", lastName:"Nicolau",email:"frank.nicolau03@gmail.com" }];
      
-     useEffect(()=>{
-
+     useEffect(async ()=>{
+        const users = await getUsers();
+        console.log(users);
      },[]);
      return (
              <>

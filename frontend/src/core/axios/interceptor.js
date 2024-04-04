@@ -1,9 +1,10 @@
 import axios from 'axios';
-import {APIKEY} from "../utils/constants";
+import {APIKEY} from "../utils/enviroments";
+import {SERVER_URL} from "../utils/enviroments";
 
 const TIMEOUT = 1 * 60 * 1000;
 axios.defaults.timeout = TIMEOUT;
-axios.defaults.baseURL = process.env.SERVER_API_URL;
+axios.defaults.baseURL = SERVER_URL;
 
 const setUpAxiosInterceptors = () => {
     const onRequestSuccess = config => {        
