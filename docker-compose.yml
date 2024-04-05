@@ -54,7 +54,7 @@ services:
     image: frontend:${FRONT_VERSION}
     container_name: frontend
     ports:
-      - 80:80
+      - 8080:80
     environment:
       - NODE_ENV:${NODE_ENV}
       - API_KEY:${API_KEY}
