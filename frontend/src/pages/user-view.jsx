@@ -1,32 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '../components/table';
-import {getUsers} from '../core/api/users'
+import Api from '../core/api/users'
 
 const UserView = () => {
 
      const headers = ["#", "Usuario", "Nombre", "Apellido", "Correo"];
-     const users = [{id:1, user:"Frank", name:"frank", lastName:"Nicolau",email:"frank.nicolau03@gmail.com" }];
+     const [users, setUsers] = useState([]);
      
-     useEffect(async ()=>{
-        const users = await getUsers();
-        console.log(users);
-     },[]);
+     useEffect(() => {    
+        Api.getUsers().then(res => {
+            setUsers(res.data) 
+         }).catch(err => {
+            console.log(err);
+         })
+      },[]);
+
      return (
              <>
                 <nav
-                    className="relative flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 lg:py-4"
+                    className="relative flex w-full flex-wrap items-center justify-between  py-2  lg:py-4"
                     data-twe-navbar-ref>
                     <div className="flex w-full flex-wrap items-center justify-between px-3">
                         <button
                         type="button"
                         data-twe-ripple-init
                         data-twe-ripple-color="light"
-                        className="me-3 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
-                         New
+                        className="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                         </svg>
                         </button>
                     </div>
                 </nav>
-               <Table headers={headers} data= {users}/>
+               <Table headers={headers} data={users}/>
              </>
           )
         };

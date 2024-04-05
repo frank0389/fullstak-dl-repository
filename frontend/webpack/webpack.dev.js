@@ -11,11 +11,12 @@ module.exports = {
   },
   module: require("./webpack.rules") , 
   devServer: {
+    historyApiFallback: true, 
     static: {
       directory: path.join(__dirname, '../dist'),
     },
     compress: true,
-    port: 3000,
+    port: 4500,
   },
   resolve: {
     extensions: [".js", ".json", ".jsx"],

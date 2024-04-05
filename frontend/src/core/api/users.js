@@ -1,16 +1,16 @@
-import axios from "axios";
+const axios = require('axios').default;
 import { SERVER_URL } from "../utils/enviroments";
-import setUpAxiosInterceptors from "../axios/interceptor";
+import { API_KEY } from "../utils/enviroments";
 
-setUpAxiosInterceptors();
 
-export const getUsers = async () => {
-    try {
-        const response = await axios.get(SERVER_URL+"/users");
-        return response.data;
-    } catch(err){
-      console.log("Error "+JSON.stringify(err));
-    }
+const http = axios.create({
+    baseURL: SERVER_URL,
+    timeout: 3000,
+    headers: {'apikey': API_KEY}
+  });
+
+ const getUsers = () => {
+     return http.get("/users");
 };
 
 const getUser = async (id)=>{
@@ -29,5 +29,6 @@ const deleteUser = async (id)=>{
 
 };
 
-
-
+export default {
+   getUsers,
+};
