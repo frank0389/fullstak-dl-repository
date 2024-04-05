@@ -78,7 +78,7 @@ services:
     image: api:${API_VERSION}
     container_name: frontend
     ports:
-      - 3000:3000
+      - 3000:8080
     environment:
       NODE_ENV: ${NODE_ENV}
       API_KEY: ${API_KEY}
